@@ -32,8 +32,21 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
     })
 })
-// PUT
 
+// PUT
+router.put('/:id', (req, res) => {
+    const toDoId = req.params.id;
+    const queryText = `UPDATE "tasks" SET "Completed" = 'No' WHERE "id" = $1;`;
+    pool
+    .query(queryText, [toDoId])
+    .then((response) => {
+        res.sendStatus(200);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
 // DELETE
 
 module.exports = router;
