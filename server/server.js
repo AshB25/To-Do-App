@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const todoRouter = require('./routes/todo.router.js');
+const todoRouter = require('./routes/todo.router');
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
