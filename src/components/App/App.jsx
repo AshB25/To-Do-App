@@ -23,6 +23,17 @@ function App () {
     refreshList();
   }, []);
 
+  const handleClickDelete = (id) => {
+    console.log('DELETE TASK', id);
+    deleteTasks(id)
+    .then((response) => {
+      refreshList();
+    })
+    .catch((err) => {
+      console.log('ERROR DELETE', err);
+    });
+  };
+
   // const handleClickToggleTask = (id) => {
   //   updateTaskComplete(id)
   //   .then((response) => {
@@ -43,6 +54,7 @@ function App () {
           <div key={dataIndex}>
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
+            <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
             </div>
         );
       })}
