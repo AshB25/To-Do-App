@@ -20,9 +20,9 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     const toDo = req.body;
-    const sqlText = 'INSERT INTO "tasks" ("User", "Task", "Completed") VALUES ($1, $2, $3)'; 
+    const sqlText = 'INSERT INTO "tasks" ("User", "Task") VALUES ($1, $2)'; 
     pool
-    .query(sqlText, [toDo.User, toDo.Task, toDo.Completed])
+    .query(sqlText, [toDo.User, toDo.Task])
     .then((results) => {
         console.log('add task info to database', toDo);
         res.sendStatus(201);
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 // PUT
 router.put('/:id', (req, res) => {
     const toDoId = req.params.id;
-    const queryText = `UPDATE "tasks" SET "Completed" = 'No' WHERE "id" = $1;`;
+    const queryText = `UPDATE "tasks" SET "Completed" = NOT "Completed" WHERE "id" = $1;`;
     pool
     .query(queryText, [toDoId])
     .then((response) => {

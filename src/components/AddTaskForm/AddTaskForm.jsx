@@ -4,6 +4,8 @@ import { postTasks } from '../../tasklistApi/tasklist.api';
 function AddTaskForm(props) {
     const [userValue, setUserValue] = useState('');
     const [taskValue, setTaskValue] = useState('');
+    // const [completedValue, setCompletedValue] = useState('');
+
     const handleChangeTask = (event) => {
         setTaskValue(event.target.value);
     };
@@ -14,16 +16,19 @@ const handleSubmitTask = (event) => {
     console.log('SUBMIT', {
         User: userValue,
         Task: taskValue,
+        // Completed: completedValue,
     });
 
     postTasks({
         User: userValue,
         Task: taskValue,
+        // Completed: completedValue,
     })
     .then((response) => {
         props.taskRefreshCallback();
         setUserValue('');
-        setTaskValue('');  
+        setTaskValue(''); 
+        // setCompletedValue(''); 
     })
     .catch((err) => {
         console.log('ERROR', err);

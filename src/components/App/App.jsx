@@ -34,15 +34,15 @@ function App () {
     });
   };
 
-  // const handleClickToggleTask = (id) => {
-  //   updateTaskComplete(id)
-  //   .then((response) => {
-  //     refreshList();
-  //   })
-  //   .catch((err) => {
-  //     console.log('ERROR TOGGLE', err);
-  //   });
-  // };
+  const handleClickToggleTask = (id) => {
+    updateTaskComplete(id)
+    .then((response) => {
+      refreshList();
+    })
+    .catch((err) => {
+      console.log('ERROR TOGGLE', err);
+    });
+  };
 
   return (
     <div>
@@ -55,6 +55,7 @@ function App () {
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
             <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
+            <button onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'True' : 'False'}</button>
             </div>
         );
       })}
