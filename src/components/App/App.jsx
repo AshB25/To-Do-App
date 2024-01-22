@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from '../App/Header/Header'
 import { fetchTasks, deleteTasks, updateTaskComplete } from '../../tasklistApi/tasklist.api';
+import AddTaskForm from '../AddTaskForm/AddTaskForm';
 
 function App () {
   const [taskList, setTaskList] = useState([]);
@@ -25,6 +26,7 @@ function App () {
   return (
     <div>
       <Header />
+      <AddTaskForm taskRefreshCallback={refreshList} />
     </div>
   );
 
