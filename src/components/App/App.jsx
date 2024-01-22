@@ -23,10 +23,29 @@ function App () {
     refreshList();
   }, []);
 
+  // const handleClickToggleTask = (id) => {
+  //   updateTaskComplete(id)
+  //   .then((response) => {
+  //     refreshList();
+  //   })
+  //   .catch((err) => {
+  //     console.log('ERROR TOGGLE', err);
+  //   });
+  // };
+
   return (
     <div>
       <Header />
       <AddTaskForm taskRefreshCallback={refreshList} />
+
+      {taskList.map((taskData, dataIndex) => {
+        return (
+          <div key={dataIndex}>
+            <h3>{taskData.User}</h3>
+            <p>{taskData.Task}</p>
+            </div>
+        );
+      })}
     </div>
   );
 
