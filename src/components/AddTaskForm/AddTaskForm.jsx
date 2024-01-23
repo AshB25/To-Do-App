@@ -36,7 +36,7 @@ const handleSubmitTask = (event) => {
 };
 
 return (
-    <form onSubmit={handleSubmitTask} className="App-Header">
+    <form onSubmit={handleSubmitTask} className="App-header">
         <label>
             <span>User:</span>
             <input 

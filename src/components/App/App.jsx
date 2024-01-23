@@ -3,6 +3,7 @@ import Header from '../App/Header/Header'
 import { fetchTasks, deleteTasks, updateTaskComplete } from '../../tasklistApi/tasklist.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import Button from '@mui/material/Button';
+import './App.css';
 
 function App () {
   const [taskList, setTaskList] = useState([]);
@@ -46,7 +47,7 @@ function App () {
   };
 
   return (
-    <div>
+    <div className='App'>
       <Header />
       <AddTaskForm taskRefreshCallback={refreshList} />
 
