@@ -53,11 +53,12 @@ function App () {
 
       {taskList.map((taskData, dataIndex) => {
         return (
-          <div key={dataIndex}>
+          <div key={dataIndex}>  
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
+            <button onClick={() => handleClickToggleTask(taskData.id)}
+            className={`task ${taskData.Completed ? 'true' : 'false'}`}>Completed</button>
             <Button variant="outlined" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
-            <Button onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'True' : 'False'}</Button>
             </div>
         );
       })}
