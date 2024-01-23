@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../App/Header/Header'
 import { fetchTasks, deleteTasks, updateTaskComplete } from '../../tasklistApi/tasklist.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
+import Button from '@mui/material/Button';
 
 function App () {
   const [taskList, setTaskList] = useState([]);
@@ -54,8 +55,8 @@ function App () {
           <div key={dataIndex}>
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
-            <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
-            <button onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'True' : 'False'}</button>
+            <Button variant="outlined" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
+            <Button onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'True' : 'False'}</Button>
             </div>
         );
       })}
