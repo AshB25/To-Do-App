@@ -3,6 +3,9 @@ import Header from '../App/Header/Header'
 import { fetchTasks, deleteTasks, updateTaskComplete } from '../../tasklistApi/tasklist.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+
+
 import './App.css';
 
 function App () {
@@ -46,22 +49,24 @@ function App () {
     });
   };
 
+
   return (
     <div className='App'>
       <Header />
       <AddTaskForm taskRefreshCallback={refreshList} />
 
+      <Grid container spacing={5}>
       {taskList.map((taskData, dataIndex) => {
         return (
-          <div key={dataIndex}>  
+          <Grid item xs={5} key={dataIndex}>  
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
-            <button onClick={() => handleClickToggleTask(taskData.id)}
-            className={`task ${taskData.Completed ? 'true' : 'false'}`}>Completed</button>
-            <Button variant="outlined" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
-            </div>
+            <Button variant="contained" size="small" color="error" onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'Yes' : 'No'}</Button>
+            <Button variant="outlined" size="small" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
+          </Grid>
         );
       })}
+      </Grid>
     </div>
   );
 
