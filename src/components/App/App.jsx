@@ -77,7 +77,7 @@ function App () {
             <h3>{taskData.User}</h3>
             <p>{taskData.Task}</p>
             {/* <ButtonColor onClick={() => handleClickToggleTask(taskData.id)}> :{taskData.Completed ? 'Yes' : 'No'} </ButtonColor> */}
-            <Button variant="contained" size="small" color="error" onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'Yes' : 'No'}</Button>
+            <Button variant="contained" size="small" color="success" onClick={() => handleClickToggleTask(taskData.id)}>Completed: {taskData.Completed ? 'Yes' : 'No'}</Button>
             <Button variant="contained" size="small" color="black" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
           </Grid>
           </ThemeProvider>
