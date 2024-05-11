@@ -15,4 +15,5 @@ if (process.env.DATABASE_URL) {
     database: process.env.DB_DATABASE || 'weekend-to-do-app',
   });
 }
+
 module.exports = pool;
